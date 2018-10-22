@@ -14,3 +14,34 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require jquery_ujs
+//= require_tree .
+
+/*if(bod.classList.contains("expand-content")){
+bod.classList.remove("expand-content");
+  bod.classList.add("expand-content-show");
+}
+else{
+  bod.classList.remove("expand-content-show");
+  bod.classList.add("expand-content");
+}
+*/
+function main(index) {
+    var bod = document.getElementsByClassName('expand-content-show')[index];
+    var button_div = document.getElementById('expand_' +index);
+    if(bod.style.display=='none'){
+      bod.style.display='flex';
+      button_div.innerHTML = "hide";
+      /*if(button_div){
+        button_div.innerHTML = "hide";
+      }*/
+    }
+    else{
+      bod.style.display='none';
+      button_div.innerHTML = "expand";
+    }
+
+  }
+
+  // debugger;

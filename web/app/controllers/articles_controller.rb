@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
+    @reports = Report.all
   end
   def edit
     @article = Article.find(params[:id])

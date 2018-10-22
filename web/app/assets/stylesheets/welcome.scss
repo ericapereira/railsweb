@@ -1,3 +1,33 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.table {
+  background-color: lightgrey;
+  font-size: 18px;
+  width: 100%;
+  border: 2px solid black;
+}
+
+td{
+  text-align: center;
+  padding: 10px;
+}
+p{
+  display: inline-block;
+}
+
+.expand {
+    position: relative;
+    display: inline-block;
+}
+
+.expand-content-show{
+  display: none;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 1px 1px;
+  z-index: 1;
+}

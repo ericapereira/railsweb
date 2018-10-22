@@ -1,2 +1,31 @@
-<h1>Welcome!</h1>
-<p>Find me in app/views/welcome/homepage.html.erb</p>
+<h1>The following are the reported violations:</h1>
+<table class ="table ">
+  <tr>
+    <th>Document Source</th>
+    <th>Violated directive</th>
+    <th>Blocked URI </th>
+    <th>Details </th>
+  </tr>
+  <% @reports.each_with_index do |report, index| %>
+  <tr>
+    <td> <%= extract_source(report.body) %> </td>
+    <td><%= extract_violation(report.body) %></td>
+    <td><%= extract_blocked_uri(report.body) %></td>
+    <td> <%= index %> <td>
+    <td>
+      <button class="expand" id="expand_<%=index %>" value="expand" onclick="main(<%= index %>)">
+        expand
+      </button>
+      <a class="expand-content-show">
+        <% values = JSON.parse(report.body) %>
+          <% if values.key? 'csp-report' %>
+            <% values['csp-report'].each do|val| %>
+              <%= print_id_and_key(values['csp-report'], val) %>
+            <% end %>
+          <% end %>
+      </a>
+    </td>
+  </tr>
+  <% end %>
+
+</table>
